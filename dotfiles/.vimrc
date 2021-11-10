@@ -5,9 +5,7 @@ set expandtab
 set shiftwidth=4
 colorscheme zenburn
 filetype plugin on
-autocmd FileType perl set path+=$UNITY_ROOT/lib
-autocmd FileType python set path+=$PYTHONPATH
-"set path+=**
+syntax enable
 
 au BufRead,BufNewFile *.vue set ft=html syntax=html
 
