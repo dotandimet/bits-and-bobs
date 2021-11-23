@@ -6,10 +6,14 @@ opt.expandtab = true          -- set expandtab
 opt.shiftwidth = 4            -- set shiftwidth=4
 opt.list = true          -- set list
 opt.listchars = { trail = '.', tab = '>.' }   -- set listchars=trail:.,tab:>.
+opt.hidden = true        -- set hidden
           -- "set t_Co=256
-          -- filetype plugin on
-          -- "set path+=**
-          -- au BufRead,BufNewFile *.vue set ft=html syntax=html
+vim.cmd([[
+          filetype plugin on
+          "set path+=**
+          au BufRead,BufNewFile *.vue set ft=html syntax=html
+          au BufRead,BufNewFile Jenkinsfile set ft=groovy syntax=groovy
+          ]])
 -- And Now, pluginzzzzzzzz!
 local fn = vim.fn
 
