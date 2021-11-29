@@ -9,6 +9,7 @@ syntax enable
 
 au BufRead,BufNewFile *.vue set ft=html syntax=html
 au BufRead,BufNewFile Jenkinsfile set ft=groovy syntax=groovy
+au BufRead,BufNewFile Rprofile set ft=R syntax=R
 
 set list
 set listchars=trail:.,tab:>.

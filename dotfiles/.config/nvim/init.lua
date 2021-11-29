@@ -13,6 +13,7 @@ vim.cmd([[
           "set path+=**
           au BufRead,BufNewFile *.vue set ft=html syntax=html
           au BufRead,BufNewFile Jenkinsfile set ft=groovy syntax=groovy
+          au BufRead,BufNewFile Rprofile set ft=R syntax=R
           ]])
 -- And Now, pluginzzzzzzzz!
 local fn = vim.fn
