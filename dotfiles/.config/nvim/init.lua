@@ -7,6 +7,7 @@ opt.shiftwidth = 4            -- set shiftwidth=4
 opt.list = true          -- set list
 opt.listchars = { trail = '.', tab = '>.' }   -- set listchars=trail:.,tab:>.
 opt.hidden = true        -- set hidden
+opt.clipboard = "unnamed"
           -- "set t_Co=256
 vim.cmd([[
           filetype plugin on
