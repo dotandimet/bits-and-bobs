@@ -1,7 +1,16 @@
-# zmodload zsh/zprof
+#zmodload zsh/zprof
 
 export LC_ALL=en_US.UTF-8
 
+# History
+HISTSIZE=10000
+SAVEHIST=10000
+setopt INC_APPEND_HISTORY_TIME
+
+if [[ ! -d $HOME/.zsh/site_functions ]] then
+    mkdir -p $HOME/.zsh/site_functions
+fi
+fpath=( $HOME/.zsh/site_functions /opt/homebrew/share/zsh/site-functions "${fpath[@]}" )
 autoload -Uz vcs_info
 autoload -U colors && colors
 precmd_vcs_info() { vcs_info }
@@ -16,13 +25,8 @@ then
     export LS_COLORS="$(vivid generate molokai)"
 fi
 
-if [[ ! -z $(whence kubectl) ]]
-then
- autoload -Uz compinit
- compinit
- source <(kubectl completion zsh)
-fi
-
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# zprof
+autoload -Uz compinit && compinit
+
+#zprof
