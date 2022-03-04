@@ -1,7 +1,7 @@
 #zmodload zsh/zprof
 
 export LC_ALL=en_US.UTF-8
-
+export EDITOR=nvim
 # History
 HISTSIZE=10000
 SAVEHIST=10000
