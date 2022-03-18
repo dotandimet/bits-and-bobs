@@ -30,3 +30,9 @@ fi
 # autoload -Uz compinit && compinit
 
 #zprof
+
+# ^A isn't working in tmux for some reason, lets totally change all my key bindings to vi!
+bindkey -v
+# Arrgh, ^R isn't working in vi-mode, let's add it!
+bindkey "^R" history-incremental-search-backward
+
