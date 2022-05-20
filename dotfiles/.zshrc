@@ -41,7 +41,7 @@ fi
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit
 
 #zprof
 
