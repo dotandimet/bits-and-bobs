@@ -2,6 +2,7 @@
 
 export LC_ALL=en_US.UTF-8
 export EDITOR=nvim
+bindkey -e  # setting EDITOR messes with keybindings, this should restore them - https://stackoverflow.com/a/43087047/117896
 # History
 HISTSIZE=10000
 SAVEHIST=10000
@@ -45,8 +46,4 @@ autoload -Uz compinit && compinit
 
 #zprof
 
-# ^A isn't working in tmux for some reason, lets totally change all my key bindings to vi!
-bindkey -v
-# Arrgh, ^R isn't working in vi-mode, let's add it!
-bindkey "^R" history-incremental-search-backward
-
+alias kc="kubectl config get-contexts"
