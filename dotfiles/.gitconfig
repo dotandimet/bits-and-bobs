@@ -13,5 +13,8 @@
 	changed = diff-tree -r --no-commit-id --name-only
 	last = changed HEAD
 	stu = status -uno
+	wmail = config user.email dotan.dimet@cytoreason.com
 [push]
 	default = simple
+[init]
+	defaultBranch = main
