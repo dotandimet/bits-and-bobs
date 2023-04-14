@@ -1,2 +1,1 @@
 require("dotan")
-print("ehllo")

@@ -1,3 +1,3 @@
 require("dotan.remap")
 require("dotan.packer")
-print("dotan")
+require("dotan.set")
