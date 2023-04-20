@@ -8,6 +8,7 @@ if [ -f '/Users/dotan/google-cloud-sdk/path.bash.inc' ]; then . '/Users/dotan/go
 if [ -f '/Users/dotan/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/dotan/google-cloud-sdk/completion.bash.inc'; fi
 
 # bash completions
+export BASH_COMPLETION_COMPAT_DIR="/opt/homebrew/etc/bash_completion.d"
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 [[ -r "${HOME}/.bashrc" ]] && . "${HOME}/.bashrc"
