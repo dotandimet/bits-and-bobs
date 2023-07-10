@@ -9,8 +9,10 @@ vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.list = true
 vim.opt.listchars = { trail = ".", tab = ">." }
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.opt.hlsearch = false
-vim.opt.incsearch = true
+-- vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 
 -- au BufRead,BufNewFile *.vue set ft=html syntax=html

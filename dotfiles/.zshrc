@@ -70,3 +70,5 @@ if [[ -d ~/.rd/bin/ ]]
 then
     export PATH="${PATH}:${HOME}/.rd/bin"
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

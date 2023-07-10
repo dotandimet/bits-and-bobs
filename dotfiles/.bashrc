@@ -3,7 +3,12 @@ export EDITOR=nvim
 # History
 HISTSIZE=10000
 HISTFILESIZE=10000
+# append to history file instead of overwriting
 shopt -s histappend
+# A new shell gets the history lines from all previous shells
+PROMPT_COMMAND='history -a'
+# Don't put duplicate lines in the history.
+export HISTCONTROL=ignoredups
 
 mail_warn() { echo ''; }
 
@@ -48,4 +53,7 @@ then
   export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 fi
 
+# bash completion for git on mac:
+source $(xcode-select -p)/usr/share/git-core/git-completion.bash
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
