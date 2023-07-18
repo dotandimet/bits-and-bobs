@@ -15,7 +15,7 @@ mail_warn() { echo ''; }
 if [[ -n `hostname | grep platelet` ]]
  then
   mail_warn() {
-    mail=$([[ -d .git ]] && git config user.email)
+    mail=$(test -d .git && git config user.email)
     echo ${mail/dotan.dimet@cytoreason.com}
   };
 fi
