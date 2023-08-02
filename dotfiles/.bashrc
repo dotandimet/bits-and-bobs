@@ -39,6 +39,8 @@ if [[ ! -z $(which vivid) ]]
 then
     export LS_COLORS="$(vivid generate molokai)"
 fi
+# this silliness is useless unless we enable the --color option for ls:
+alias ls="ls --color"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
