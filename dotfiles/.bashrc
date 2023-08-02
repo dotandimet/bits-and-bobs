@@ -16,24 +16,42 @@ if [[ -n `hostname | grep platelet` ]]
  then
   mail_warn() {
     mail=$(test -d .git && git config user.email)
-    echo ${mail/dotan.dimet@cytoreason.com}
+    mail=${mail/dotan.dimet@cytoreason.com}
+    if [[ -n "${mail}" ]]
+    then
+        echo " ${mail}"
+    else
+        echo ""
+    fi
   };
 fi
 
 kube_config=""
 get_kube_config() {
   kube_config=$(rg -i current-context ~/.kube/config | awk '{ print $NF }')
-  echo $kube_config
+  if [[ -n "${kube_config}" ]]
+  then
+    echo "${kube_config} "
+  else
+    echo ""
+  fi
 }
 
 function parse_git_dirty {
   [[ $(git status --porcelain 2> /dev/null) ]] && echo "*"
 }
+
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ \1/"
+    branch=$(test -d .git && git branch --show-current)
+    if [[ -n "${branch}" ]]
+    then
+        echo " ${branch}"
+    else
+        echo ""
+    fi
 }
 
-export PS1="\[\033[38;5;221m\]\u\[\033[00m\]@\[\033[36m\]\h \[\033[35m\]\$(get_kube_config) \[\033[00m\]\w\[\033[32m\]\$(parse_git_branch)\[\033[33m\]\[\033[00m\]\[\033[38;5;196m\] \$(mail_warn)\[\033[00m\]>"
+export PS1="\[\033[38;5;221m\]\u\[\033[00m\]@\[\033[36m\]\h \[\033[35m\]\$(get_kube_config)\[\033[00m\]\w\[\033[32m\]\$(parse_git_branch)\[\033[33m\]\[\033[00m\]\[\033[38;5;196m\]\$(mail_warn)\[\033[00m\]>"
 
 if [[ ! -z $(which vivid) ]]
 then
