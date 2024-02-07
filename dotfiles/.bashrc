@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 export LC_ALL=en_US.UTF-8
 export EDITOR=nvim
 # History
@@ -12,12 +13,12 @@ export HISTCONTROL=ignoredups
 
 mail_warn() { echo ''; }
 
-if [[ -n `hostname | grep platelet` ]]
+if hostname | grep -q platelet
  then
   mail_warn() {
     mail=$(test -d .git && git config user.email)
     mail=${mail/dotan.dimet@cytoreason.com}
-    if [[ -n "${mail}" ]]
+    if [[ ! "$(test -d .git && git config user.email)" == *dotan.dimet@cytoreason.com* ]]
     then
         echo " ${mail}"
     else
@@ -53,13 +54,15 @@ function parse_git_branch {
 
 export PS1="\[\033[38;5;221m\]\u\[\033[00m\]@\[\033[36m\]\h \[\033[35m\]\$(get_kube_config)\[\033[00m\]\w\[\033[32m\]\$(parse_git_branch)\[\033[33m\]\[\033[00m\]\[\033[38;5;196m\]\$(mail_warn)\[\033[00m\]>"
 
-if [[ ! -z $(which vivid) ]]
+if [[ -n $(which vivid) ]]
 then
-    export LS_COLORS="$(vivid generate molokai)"
+    LS_COLORS=$(vivid generate molokai)
+    export LS_COLORS
 fi
 # this silliness is useless unless we enable the --color option for ls:
-alias ls="ls --color"
+alias ls="ls --color=auto"
 
+# shellcheck source=/opt/homebrew/opt/asdf/libexec/asdf.sh
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 alias kc="kubectl config get-contexts"
@@ -74,6 +77,15 @@ then
 fi
 
 # bash completion for git on mac:
-source $(xcode-select -p)/usr/share/git-core/git-completion.bash
-
+# shellcheck source=/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+source "$(xcode-select -p)/usr/share/git-core/git-completion.bash"
+# shellcheck source=/Users/dotan/.fzf.bash
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# AWS completions:
+# https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
+if [[ -f /usr/local/bin/aws_completer ]]
+then
+    complete -C '/usr/local/bin/aws_completer' aws
+fi
+
