@@ -62,31 +62,13 @@ fi
 # this silliness is useless unless we enable the --color option for ls:
 alias ls="ls --color=auto"
 
-# shellcheck source=/opt/homebrew/opt/asdf/libexec/asdf.sh
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 alias kc="kubectl config get-contexts"
 alias kctx='kube_config=$(kubectl config get-contexts -o=name | fzf ) && kubectl config use-context $kube_config'
 
-# poetry uses this:
-export PATH="${HOME}/.local/bin:$PATH"
-
 if [[ -d "${HOME}/google-cloud-sdk" ]]
 then
   export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-fi
-
-# bash completion for git on mac:
-# shellcheck source=/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
-source "$(xcode-select -p)/usr/share/git-core/git-completion.bash"
-# shellcheck source=/Users/dotan/.fzf.bash
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# AWS completions:
-# https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
-if [[ -f /usr/local/bin/aws_completer ]]
-then
-    complete -C '/usr/local/bin/aws_completer' aws
 fi
 
 alias excel='open -a "Microsoft Excel" '
