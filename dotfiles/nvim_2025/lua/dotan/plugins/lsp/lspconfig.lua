@@ -97,6 +97,28 @@ return {
                     cmd = { "java", "-jar", "/Users/dotan/.local/lib/groovy-language-server-all.jar" },
                 })
             end,
+            ["ts_ls"] = function()
+                lspconfig.ts_ls.setup({
+                    init_options = {
+                        plugins = {
+                            {
+                                name = "@vue/typescript-plugin",
+                                location = "/Users/dotan/.asdf/installs/nodejs/19.1.0/lib/node_modules/@vue/language-server",
+                                languages = { "vue" },
+                            },
+                        },
+                    },
+                })
+            end,
+            ["volar"] = function()
+                lspconfig.volar.setup({
+                    init_options = {
+                        vue = {
+                            hybridMode = false,
+                        },
+                    },
+                })
+            end,
             ["svelte"] = function()
                 -- configure svelte server
                 lspconfig["svelte"].setup({

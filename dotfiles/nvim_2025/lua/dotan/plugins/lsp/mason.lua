@@ -25,6 +25,7 @@ return {
         })
 
         mason_lspconfig.setup({
+            automatic_installation = true,
             -- list of servers for mason to install
             ensure_installed = {
                 "ts_ls",
@@ -38,6 +39,7 @@ return {
                 "prismals",
                 "pyright",
                 "r_language_server",
+                "volar",
             },
         })
 
@@ -49,6 +51,10 @@ return {
                 "black", -- python formatter
                 "pylint",
                 "eslint_d",
+                "vale",
+                "hadolint",
+                "shellcheck",
+                "shfmt",
             },
         })
     end,
