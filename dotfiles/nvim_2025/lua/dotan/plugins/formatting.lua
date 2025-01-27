@@ -22,11 +22,11 @@ return {
                 python = { "isort", "black" },
                 bash = { "shfmt" },
             },
-            format_on_save = {
-                lsp_fallback = true,
-                async = false,
-                timeout_ms = 1000,
-            },
+            --             format_on_save = {
+            --                 lsp_fallback = true,
+            --                 async = false,
+            --                 timeout_ms = 1000,
+            --             },
             formatters = {
                 shfmt = {
                     prepend_args = { "-i", "2" },
