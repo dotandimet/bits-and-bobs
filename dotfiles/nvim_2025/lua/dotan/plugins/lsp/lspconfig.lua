@@ -64,6 +64,12 @@ return {
 
                 opts.desc = "Restart LSP"
                 keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+                opts.desc = "toggle diagnostics"
+                local toggle_diagnostics = function()
+                    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+                end
+                keymap.set("n", "<leader>td", toggle_diagnostics, opts)
             end,
         })
 
@@ -88,7 +94,7 @@ return {
             ["r_language_server"] = function()
                 lspconfig["r_language_server"].setup({
                     capabilities = capabilities,
-                    settings = { r = { lsp = { diagnostics = false } } },
+                    settings = { r = { lsp = { diagnostics = true } } },
                 })
             end,
             ["groovyls"] = function()
