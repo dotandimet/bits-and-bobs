@@ -28,10 +28,11 @@ return require('packer').startup(function(use)
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
     }
-  use( -- Autocompletion
+  use { -- Autocompletion
     "hrsh7th/nvim-cmp",     -- Required
     "hrsh7th/cmp-nvim-lsp", -- Required
     "L3MON4D3/LuaSnip" -- Required
-   )
+}
 use({ 'mfussenegger/nvim-lint', as = 'lint' })
+use "IndianBoy42/tree-sitter-just"
 end)
