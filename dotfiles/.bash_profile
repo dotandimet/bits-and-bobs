@@ -2,7 +2,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 . "$(brew --prefix asdf)/libexec/asdf.sh"
-. "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
+. "$(brew --prefix asdf)/etc/bash_completion.d/asdf"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/dotan/google-cloud-sdk/path.bash.inc' ]; then . '/Users/dotan/google-cloud-sdk/path.bash.inc'; fi
