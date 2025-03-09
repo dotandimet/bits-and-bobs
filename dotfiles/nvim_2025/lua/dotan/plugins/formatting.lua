@@ -21,6 +21,7 @@ return {
                 lua = { "stylua" },
                 python = { "isort", "black" },
                 bash = { "shfmt" },
+                perl = { "perltidy" }
             },
             --             format_on_save = {
             --                 lsp_fallback = true,

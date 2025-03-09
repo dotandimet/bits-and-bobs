@@ -22,3 +22,4 @@ vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 2
 vim.opt.termguicolors = true
+vim.opt.hidden = true
