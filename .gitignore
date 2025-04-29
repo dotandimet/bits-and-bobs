@@ -1,2 +1,4 @@
 node_modules/
 dotfiles/.vim/.netrwhist
+.DS_Store
+**/.DS_Store
