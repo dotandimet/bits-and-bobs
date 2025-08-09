@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/Users/dotan/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tree-sitter-just"] = {
+    loaded = true,
+    path = "/Users/dotan/.local/share/nvim/site/pack/packer/start/tree-sitter-just",
+    url = "https://github.com/IndianBoy42/tree-sitter-just"
+  },
   undotree = {
     loaded = true,
     path = "/Users/dotan/.local/share/nvim/site/pack/packer/start/undotree",
