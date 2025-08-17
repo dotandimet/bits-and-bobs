@@ -26,14 +26,14 @@ mail_warn() {
     fi
 }
 
-kube_config=""
-get_kube_config() {
-  if [ -z "$kube_config" -o -n "$(fc -l -1 | rg 'kubectl config')" ]
-  then
-    kube_config=$(kubectl config current-context)
-  fi
-}
-
+# kube_config=""
+# get_kube_config() {
+#   if [ -z "$kube_config" -o -n "$(fc -l -1 | rg 'kubectl config')" ]
+#   then
+#     kube_config=$(kubectl config current-context)
+#   fi
+# }
+# 
 autoload -Uz vcs_info
 autoload -U colors && colors
 precmd_vcs_info() { vcs_info }
